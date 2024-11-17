@@ -1,4 +1,6 @@
 {
     "he":"Hello",
-    "text": " this is a test"
+    "text": " this is a test",
+    "enter name": "Enter your name!",
+    "submit": "Submit"
 }

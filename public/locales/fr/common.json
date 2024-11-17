@@ -1,4 +1,6 @@
 {
     "he":"Salut",
-    "text":" ceci un test"
+    "text":" ceci un test",
+    "enter name": "Entrer votre nom!",
+    "submit": "Valider"
 }

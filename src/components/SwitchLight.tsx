@@ -6,7 +6,7 @@ interface SwitcherProps {
 
 const Switcher : React.FC<SwitcherProps> = ({setTheme}) => {
   return (
-    <div className="w-32 aspect-video rounded-xl dark:has-[:checked]:bg-[#3a3347] bg-white border-4 border-DodgerBlue dark:border-GoldenYellow ">
+    <div className="w-32 aspect-video rounded-xl dark:has-[:checked]:bg-[#3a3347] dark:bg-[#3a3347] bg-white border-4 border-DodgerBlue dark:border-GoldenYellow ">
       <div className="flex h-full w-full px-2 items-center gap-x-2">
         <div className="w-4 h-4 flex-shrink-0 rounded-full border-4 border-DodgerBlue dark:border-GoldenYellow" />
         <label htmlFor="switch" className="has-[:checked]:scale-x-[-1] w-full h-7 border-4 border-[#121331] rounded cursor-pointer">
