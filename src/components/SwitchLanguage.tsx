@@ -16,11 +16,11 @@ const Language : React.FC<LanguageProps> = ({}) => {
 
   return (
     <>
-        <div className={`h-[72px] aspect-square rounded-xl bg-white dark:bg-[#3a3347]
+        <div className={`h-[72px] aspect-square rounded-xl bg-GhostWhite dark:bg-EclipsePurple
          border-4 border-DodgerBlue dark:border-GoldenYellow overflow-hidden transform duration-500 ease flex flex-row justify-around items-center
         ${showLanguage? styles.expanded:styles.closed}`}
          onMouseOver={()=> setShowLanguage(true)} onMouseLeave={()=> setShowLanguage(false)}>
-            {!showLanguage && (<button className='bg-white dark:bg-[#3a3347] w-full h-full flex justify-center items-center '><IoLanguageSharp className='text-Coralred text-lg font-semibold w-8 h-8' /></button>)}
+            {!showLanguage && (<button className=' bg-GhostWhite dark:bg-EclipsePurple w-full h-full flex justify-center items-center '><IoLanguageSharp className='text-Coralred text-lg font-semibold w-8 h-8' /></button>)}
             {showLanguage && (<div className='flex flex-row justify-between items-center gap-4 text-center text-lg font-semibold'>
                 <Link href="/" className={`w-12 h-12 rounded border-4 flex justify-center items-center ${locale==='fr'? 'bg-Coralred text-white border-Coralred': 'border-DodgerBlue dark:border-GoldenYellow'}`} locale="fr"> FR</Link>
                 <Link href="/" className={`w-12 h-12 rounded border-4 flex justify-center items-center ${locale==='en'? 'bg-Coralred text-white border-Coralred': 'border-DodgerBlue dark:border-GoldenYellow'}`} locale="en"> EN</Link>

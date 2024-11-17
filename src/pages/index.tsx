@@ -6,13 +6,24 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Switcher from "../components/SwitchLight";
 import Language from "../components/SwitchLanguage";
-import { NameCard } from "@/components/NameCard/NameCard";
+import { NameCard } from "@/components/Cards/NameCard";
+import { Activity } from "@/components/Cards/Activity";
+
+interface ActivitiesType{
+  name: string;
+  link: string;
+}
 
 export default function Home() {
   const {t}= useTranslation("common")
   const {theme , setTheme}= useTheme()
   const [mounted, setMounted]= useState(false)
   const [showCardName, setShowCardName]= useState(false)
+  const activities: ActivitiesType[]=[
+    {name: '2 thruts 1 lie', link: 'start'},
+    {name: '2 thruts 1 lie', link: 'start'},
+    
+  ]
   
   useEffect(()=> setMounted(true),[])
   function lighter(){
@@ -31,7 +42,9 @@ export default function Home() {
       <p onClick={()=>setShowCardName(true)}>
         {t("he")}
       </p>
-      <p className="text-slate-700 dark:text-yellow-200 font-bold text-lg">{t("text")}</p>
+      <section className="flex gap-5">
+        {activities.map(act=>(<Activity name={act.name} link={act.link} key={act.link}/>))}
+      </section>
 <br /><br />
 <br />
 <div>

@@ -17,7 +17,9 @@ const config: Config = {
       colors:{
         DodgerBlue: "#1E90FF",
         Coralred: "#FF4466",
-        GoldenYellow: "#FFD700"
+        GoldenYellow: "#FFD700",
+        EclipsePurple: "#3a3347",
+        GhostWhite: "#f5f3f7"
       },
     },
   },
