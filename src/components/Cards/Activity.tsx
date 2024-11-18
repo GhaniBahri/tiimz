@@ -26,6 +26,11 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
         setStart(true)
         // return sessionID
     }
+    function copyText(text: string){
+        navigator.clipboard.writeText(text)
+        .then(()=> console.log(`"${text}" copied`))
+        .catch(err=> console.error("Couldn't copy, error occured", err))
+    }
   return (
     !start? (<div className='w-80 h-48 border-4 border-DodgerBlue dark:border-GoldenYellow rounded-lg  flex flex-col justify-center items-center bg-GhostWhite dark:bg-EclipsePurple px-6 py-4 pb-6'>
         <div className='w-full h-3/4 max-h-3/4 flex items-center justify-center'>
@@ -46,12 +51,12 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
                     <p className='text-TextPrimaryLight dark:text-TextPrimaryDark text-lg font-semibold w-full text-left'>would you ask candidates to input the game code:</p>
                     <p className='w-full px-5 py-2 border-2 border-DodgerBlue dark:border-GoldenYellow rounded bg-GhostWhite dark:bg-EclipsePurple font-semibold text-xl text-TextSecondaryLight
                     dark:text-TextSecondaryDark relative group hover:shadow-inside '>{sessionID}
-                        <button className='w-8 h-8 absolute group-hover:flex hidden justify-center items-center right-2 top-1/2 -translate-y-1/2 '><FaRegCopy /></button>
+                        <button className='w-8 h-8 absolute group-hover:flex hidden justify-center items-center right-2 top-1/2 -translate-y-1/2 ' onClick={()=> copyText(sessionID)}><FaRegCopy /></button>
                     </p>
                     <p className='text-TextPrimaryLight dark:text-TextPrimaryDark text-lg font-semibold w-full text-left'>Or share directly to following link</p>
                     <p className='w-full px-5 py-2 border-2 border-DodgerBlue dark:border-GoldenYellow rounded bg-GhostWhite dark:bg-EclipsePurple font-semibold text-xl text-TextSecondaryLight
                     dark:text-TextSecondaryDark relative group hover:shadow-inside mb-4'>{sessionID}
-                        <button className='w-8 h-8 absolute group-hover:flex hidden justify-center items-center right-2 top-1/2 -translate-y-1/2 '><FaRegCopy /></button>
+                        <button className='w-8 h-8 absolute group-hover:flex hidden justify-center items-center right-2 top-1/2 -translate-y-1/2 ' onClick={()=> copyText(sessionID)}><FaRegCopy /></button>
                     </p>
                     <button className='bg-Coralred px-6 py-2 rounded text-white text-lg font-bold mx-auto mt-4'>Start</button>
             </div>
