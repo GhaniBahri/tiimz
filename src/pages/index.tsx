@@ -21,7 +21,7 @@ export default function Home() {
   const [showCardName, setShowCardName]= useState(false)
   const activities: ActivitiesType[]=[
     {name: '2 thruts 1 lie', link: 'start'},
-    {name: '2 thruts 1 lie', link: 'start'},
+    {name: '2 thruts 1 lie 2 thruts 1 lie 2 thruts 1 lie lie 2 thruts 1 lie', link: 'start'},
     
   ]
   
@@ -32,7 +32,7 @@ export default function Home() {
 
   return (
     <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24  dark:bg-neutral-800`}
+      className={` relative flex min-h-screen flex-col items-center justify-between p-24  dark:bg-neutral-800`}
     >
       {showCardName && <NameCard showCard={()=>setShowCardName(false)} activity='ThrutLie'/>}
       <div className="w-full flex flex-row justify-end items-center">
@@ -42,7 +42,7 @@ export default function Home() {
       <p onClick={()=>setShowCardName(true)}>
         {t("he")}
       </p>
-      <section className="flex gap-5">
+      <section className="flex gap-5 ">
         {activities.map(act=>(<Activity name={act.name} link={act.link} key={act.link}/>))}
       </section>
 <br /><br />

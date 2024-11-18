@@ -19,7 +19,12 @@ const config: Config = {
         Coralred: "#FF4466",
         GoldenYellow: "#FFD700",
         EclipsePurple: "#3a3347",
-        GhostWhite: "#f5f3f7"
+        GhostWhite: "#f5f3f7",
+        // Text colors
+        TextPrimaryLight: "#252133",  
+        TextSecondaryLight: "#6c6980", 
+        TextPrimaryDark: "#e8e6f0",   
+        TextSecondaryDark: "#9d99ab"
       },
     },
   },
