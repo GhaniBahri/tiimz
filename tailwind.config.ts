@@ -26,6 +26,9 @@ const config: Config = {
         TextPrimaryDark: "#e8e6f0",   
         TextSecondaryDark: "#9d99ab"
       },
+      boxShadow: {
+        'inside': 'inset -48px 0 10px 0px rgba(0, 0, 0, 0.2)',
+      }
     },
   },
   plugins: [],
