@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { FaRegCopy } from "react-icons/fa6";
 import {db} from '@/utils/firebase'
 import {doc, setDoc} from 'firebase/firestore'
+import { useRouter } from 'next/router'
 
 interface ActivityProps  {
     name: String;
@@ -11,6 +12,8 @@ interface ActivityProps  {
 export const Activity: React.FC<ActivityProps> = ({name, link}) => {
     const [start, setStart]= useState(false)
     const [sessionID, setSessionID]= useState('')
+    const router = useRouter()
+
     function generateId(activity: string, length: number = 24){
         const timeStamp = new Date().getTime().toString()
         // console.log('time', timeStamp, timeStamp.length)
@@ -26,7 +29,7 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
         setSessionID( `${activity}${timeStamp}${randomPart}`.slice(0, length))
         // console.log('session', sessionID)
         setStart(true)
-        // return sessionID
+        // return sessionID+
     }
     function copyText(text: string){
         navigator.clipboard.writeText(text)
@@ -37,9 +40,9 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
         setDoc(doc(db, "sessions", sessionID),{
             id: sessionID,
             createdAt: new Date().toString(),
-            // date: new Date().toDateString
             }).then(res=>{
             console.log("data added", res)
+            router.push(`/ThrutLie?act=${sessionID}`)
             }).catch(error=> console.error('error creating collection', error))
     }
 
