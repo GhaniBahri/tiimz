@@ -7,7 +7,7 @@ import { appWithTranslation } from 'next-i18next'
 function App({ Component, pageProps }: AppProps) {
   return ( 
     <ThemeProvider enableSystem={true} attribute='class'>
-      <Component {...pageProps} />;
+      <Component {...pageProps} />
     </ThemeProvider>
   )
 }

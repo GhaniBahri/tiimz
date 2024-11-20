@@ -6,7 +6,6 @@ import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
 import Switcher from "../components/SwitchLight";
 import Language from "../components/SwitchLanguage";
-import { NameCard } from "@/components/Cards/NameCard";
 import { Activity } from "@/components/Cards/Activity";
 
 interface ActivitiesType{
@@ -34,7 +33,7 @@ export default function Home() {
     <main
       className={` relative flex min-h-screen flex-col items-center justify-between p-24  dark:bg-neutral-800`}
     >
-      {showCardName && <NameCard showCard={()=>setShowCardName(false)} activity='ThrutLie'/>}
+      {/* {showCardName && <NameCard showCard={()=>setShowCardName(false)} activity='ThrutLie'/>} */}
       <div className="w-full flex flex-row justify-end items-center">
         <Language/>
         <Switcher setTheme={lighter}/>

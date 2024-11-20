@@ -42,7 +42,8 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
             createdAt: new Date().toString(),
             }).then(res=>{
             console.log("data added", res)
-            router.push(`/ThrutLie?act=${sessionID}`)
+            sessionStorage.setItem("sessionID", sessionID)
+            router.push(`/NameCard`)
             }).catch(error=> console.error('error creating collection', error))
     }
 
