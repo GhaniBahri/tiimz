@@ -7,13 +7,14 @@ import {doc, setDoc, updateDoc, arrayUnion, getDocs, collection, DocumentData} f
 import { useRouter } from 'next/router'
 
 interface pageProps{
-    players: []
+    players: [],
+    session: string
 }
 
 
-const Index : React.FC<pageProps>= ({players}) => {
+const Index : React.FC<pageProps>= ({players, session}) => {
     const [factsInput, setFactsInput]= useState(false)
-    const sessionID= sessionStorage.getItem('sessionID') ?? ""
+    const sessionID= sessionStorage.getItem('sessionID') ?? session
     const [facts, setFacts]= useState({thrut1:"", thrut2:"", lie:""})
     const {t}= useTranslation(("common"))
     const router = useRouter()
@@ -72,17 +73,18 @@ const Index : React.FC<pageProps>= ({players}) => {
     </>
   )
 }
-export const getServerSideProps: GetServerSideProps = async ({locale,})=>{
+export const getServerSideProps: GetServerSideProps = async ({locale, query})=>{
+    const session= query.act ?? sessionStorage.getItem("sessionID")
     const players: DocumentData = []
     const playersDoc= await getDocs(collection(db, "players"))
     playersDoc.forEach(doc=>{
         players.push({id: doc.id, ...doc.data()})
     })
-    console.log('players..', players)
+    // console.log('players..', players)
     return {
         props:{
             ...(await serverSideTranslations (locale ?? "en", ["common"]) ),
-            players
+            players, session
         }
     }
 }

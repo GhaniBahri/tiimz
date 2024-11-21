@@ -43,7 +43,7 @@ export const Activity: React.FC<ActivityProps> = ({name, link}) => {
             }).then(res=>{
             console.log("data added", res)
             sessionStorage.setItem("sessionID", sessionID)
-            router.push(`/NameCard`)
+            router.push(`/NameCard?act=ThrLie${sessionID}`)
             }).catch(error=> console.error('error creating collection', error))
     }
 

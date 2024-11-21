@@ -33,7 +33,7 @@ interface CardProps{
       }).then(res=>{
         // console.log("data added", res)
         setNameInput('')
-        router.push('/ThrutLie')
+        router.push('/ThrutLie?act=ThrLie${sessionID}')
       }).catch(error=> console.error('error creating collection', error))
     })
     .catch((error) => {
