@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Switcher from "../components/SwitchLight";
 import Language from "../components/SwitchLanguage";
 import { Activity } from "@/components/Cards/Activity";
+import Facts from "@/components/Cards/Facts";
 
 interface ActivitiesType{
   name: string;
@@ -43,6 +44,7 @@ export default function Home() {
       </p>
       <section className="flex gap-5 ">
         {activities.map(act=>(<Activity name={act.name} link={act.link} key={act.link}/>))}
+        {<Facts name="alexander the third" result={{thrut1: "hahaha", thrut2:"mdr", lie:"lol"}} />}
       </section>
 <br /><br />
 <br />
