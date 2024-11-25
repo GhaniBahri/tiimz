@@ -27,7 +27,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
             <button className='w-10 h-10 p-2 rounded bg-Coralred text-white flex justify-center items-center ml-2'><MdArrowForwardIos className='w-6 h-6' /></button>
           </div>
 
-          <div className={`${lie === '1' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark'} ${(lie==='1' && selected)? 'opacity-50': ''}
+          <div className={`${lie === '1' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark'} ${(lie==='1' && selected)? 'opacity-50 flex flex-col justify-center': ''}
           pl-6 text-lg text-left font-normal  pb-3 flex justify-between items-center mt-10  w-full group `}>
             <p className="w-10/12 pb-3 border-DodgerBlue dark:border-GoldenYellow border-b ">I live in Annaba</p>
             {!selected ? <button onClick={()=> selectLie('1')}
