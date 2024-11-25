@@ -1,5 +1,7 @@
 import React, {useState} from 'react'
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
+import { FaCheck } from "react-icons/fa";
+import { IoCloseSharp } from "react-icons/io5";
 interface FactsProps{
   name: string,
   result: object
@@ -32,7 +34,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
             <p className="w-10/12 pb-3 border-DodgerBlue dark:border-GoldenYellow border-b ">I live in Annaba</p>
             {!selected ? <button onClick={()=> selectLie('1')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
-            : <button>X</button> }
+            : <span>{lie === '1'? <FaCheck /> : <IoCloseSharp />}</span> }
           </div >
 
           <div className={`pl-6 text-lg text-left font-normal text-TextSecondaryLight dark:text-TextSecondaryDark pb-3 flex justify-between items-center
@@ -40,7 +42,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
             <p className="w-10/12 pb-3 border-DodgerBlue dark:border-GoldenYellow border-b ">I play piano</p>
             {!selected ? <button onClick={()=> selectLie('2')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
-            : <button>X</button> }
+            : <span>{lie === '2'? <FaCheck /> : <IoCloseSharp />}</span> }
           </div>
 
           <div className={`pl-6 text-lg text-left font-normal text-TextSecondaryLight dark:text-TextSecondaryDark pb-3 flex justify-between items-center
@@ -48,7 +50,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
             <p className="w-10/12 pb-3 border-DodgerBlue dark:border-GoldenYellow border-b ">I speak french</p>
             {!selected ? <button onClick={()=> selectLie('3')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
-            : <button>X</button> }
+            : <span>{lie === '3'? <FaCheck /> : <IoCloseSharp />}</span> }
           </div>
 
           <div className='flex flex-row justify-end items-end gap-2 mt-auto w-full'>
