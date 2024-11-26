@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { IoLanguageSharp } from "react-icons/io5";
 import Link from "next/link"
-import styles from  '../styles/SwitchLanguage.module.css'
+import styles from  '@/styles/SwitchLanguage.module.css'
 import { useRouter } from 'next/router'
 
 interface LanguageProps {

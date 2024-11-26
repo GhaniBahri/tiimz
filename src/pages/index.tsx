@@ -4,8 +4,8 @@ import { useTranslation } from 'next-i18next';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTheme } from "next-themes";
 import { useState, useEffect } from "react";
-import Switcher from "../components/SwitchLight";
-import Language from "../components/SwitchLanguage";
+import Switcher from "../components/NavBar/SwitchLight";
+import Language from "../components/NavBar/SwitchLanguage";
 import { Activity } from "@/components/Cards/Activity";
 import Facts from "@/components/Cards/Facts";
 
