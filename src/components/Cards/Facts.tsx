@@ -10,12 +10,12 @@ interface FactsProps{
 const Facts: React.FC<FactsProps> = ({name}) => {
   const [showFacts, setShowFacts]= useState(true)
   const [selected, setSelected]= useState(false)
-  const [lie, setLie]= useState("")
+  const [lie, setLie]= useState("0")
   function selectLie(selectedLie: string): void{
     setLie(selectedLie)
     setLie(selectedLie)
     setSelected(true)
-    console.log('lie, select', lie, selected, (lie !=='1' && !selected))
+    console.log(`the lie is ${lie}  .... and it is selected: ${selected}  **`)
   }
 
   return (
@@ -31,7 +31,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
 
           <div className={`${lie === '1' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
             py-4 font-normal  pb-3 flex  justify-between items-center mt-10  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> selectLie('1')}>
+            onClick={()=> {selectLie('1') ; console.log('lie selected', lie, 'comparison', lie === '1')}}>
             <p className="w-full flex flex-row items-center">I live in Annaba</p>
             {/* {!selected ? <button onClick={()=> selectLie('1')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
@@ -40,7 +40,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
 
           <div className={`${lie === '2' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
             py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> selectLie('2')}>
+            onClick={()=> {selectLie('2') ; console.log('lie selected', lie, 'comparison', lie === '2')}}>
             <p className="w-full flex flex-row items-center">I play piano</p>
             {/* {!selected ? <button onClick={()=> selectLie('2')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
@@ -49,7 +49,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
 
           <div className={`${lie === '3' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
             py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> selectLie('3')}>
+            onClick={()=> {selectLie('3') ; console.log('lie selected', lie, 'comparison', lie === '3')}}>
             <p className="w-full flex flex-row items-center">I speak french</p>
             {/* {!selected ? <button onClick={()=> selectLie('3')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
@@ -58,7 +58,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
 
           <div className='flex flex-row justify-end items-end gap-2 mt-auto w-full'>
             <p className='text-base font-normal text-TextSecondaryLight dark:text-TextSecondaryDark mr-auto text-left'>* Select the statement that you think is a lie</p>
-            <button onClick={()=> {selectLie(''); setSelected(false)}}
+            <button onClick={()=> {selectLie('0'); setSelected(false)}}
             className='text-lg font-bold text-TextSecondaryLight dark:text-TextSecondaryDark border-2 border-DodgerBlue dark:border-GoldenYellow rounded px-7 py-3'>
               Reset
             </button>
