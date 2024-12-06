@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useEffect, useState} from 'react'
 import { MdArrowForwardIos, MdArrowBackIos } from "react-icons/md";
 import { FaCheck } from "react-icons/fa";
 import { IoCloseSharp } from "react-icons/io5";
@@ -11,12 +11,19 @@ const Facts: React.FC<FactsProps> = ({name}) => {
   const [showFacts, setShowFacts]= useState(true)
   const [selected, setSelected]= useState(false)
   const [lie, setLie]= useState("0")
+  let slectedLie : string= "0"
+
   function selectLie(selectedLie: string): void{
-    setLie(selectedLie)
-    setLie(selectedLie)
-    setSelected(true)
-    console.log(`the lie is ${lie}  .... and it is selected: ${selected}  **`)
+    if (selectedLie === '0') setLie('0')
+    if (slectedLie === '0'){
+      setLie(selectedLie)
+    }
   }
+
+  useEffect(()=>{
+    slectedLie = lie
+    console.log(`the lie is ${slectedLie} \n the selected: ${lie} \n diferent than 0 ${slectedLie !== '0'} \n  **`)
+  }, [lie])
 
   return (
       showFacts && 
@@ -29,27 +36,30 @@ const Facts: React.FC<FactsProps> = ({name}) => {
             <button className='w-10 h-10 p-2 rounded bg-Coralred text-white flex justify-center items-center ml-2'><MdArrowForwardIos className='w-6 h-6' /></button>
           </div>
 
-          <div className={`${lie === '1' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
-            py-4 font-normal  pb-3 flex  justify-between items-center mt-10  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> {selectLie('1') ; console.log('lie selected', lie, 'comparison', lie === '1')}}>
+          <div className={`${lie === '1' ? 'bg-Coralred text-white  rounded' : lie !== '0'? 'opacity-60 border bg-GhostWhite border-EclipsePurple  rounded': 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} 
+            ${ slectedLie === '0' ? 'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple' : ''}
+            pl-6 text-lg text-left py-4 font-normal  pb-3 flex  justify-between items-center mt-10  w-full group`} 
+            onClick={()=> {selectLie('1') ; }}>
             <p className="w-full flex flex-row items-center">I live in Annaba</p>
             {/* {!selected ? <button onClick={()=> selectLie('1')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
             : <span>{lie === '1'? <FaCheck /> : <IoCloseSharp />}</span> } */}
           </div >
 
-          <div className={`${lie === '2' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
-            py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> {selectLie('2') ; console.log('lie selected', lie, 'comparison', lie === '2')}}>
+          <div className={`${lie === '2' ? 'bg-Coralred text-white rounded ' : lie !== '0'? 'opacity-60 border bg-GhostWhite border-EclipsePurple  rounded': 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'}
+            ${ slectedLie === '0' ? 'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple' : ''}
+            pl-6 text-lg text-left py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group`} 
+            onClick={()=> {selectLie('2') ; }}>
             <p className="w-full flex flex-row items-center">I play piano</p>
             {/* {!selected ? <button onClick={()=> selectLie('2')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
             : <span>{lie === '2'? <FaCheck /> : <IoCloseSharp />}</span> } */}
           </div>
 
-          <div className={`${lie === '3' ? 'bg-Coralred text-white rounded ' : 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} pl-6 text-lg text-left 
-            py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group border-DodgerBlue ${selected ? '':'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple'}`} 
-            onClick={()=> {selectLie('3') ; console.log('lie selected', lie, 'comparison', lie === '3')}}>
+          <div className={`${lie === '3' ? 'bg-Coralred text-white rounded ' : lie !== '0'? 'opacity-60 border bg-GhostWhite border-EclipsePurple  rounded': 'text-TextSecondaryLight dark:text-TextSecondaryDark dark:border-GoldenYellow border-b'} 
+            ${ slectedLie === '0' ? 'hover:border hover:rounded hover:bg-GhostWhite dark:hover:bg-EclipsePurple' : ''}
+            pl-6 text-lg text-left py-4 font-normal  pb-3 flex  justify-between items-center mt-4  w-full group`} 
+            onClick={()=> {selectLie('3') ; }}>
             <p className="w-full flex flex-row items-center">I speak french</p>
             {/* {!selected ? <button onClick={()=> selectLie('3')}
               className='rounded bg-Coralred text-white hidden justify-center items-center px-4 py-1 group-hover:flex transition-all duration-500 ease-in-out'>Select</button>
@@ -58,7 +68,7 @@ const Facts: React.FC<FactsProps> = ({name}) => {
 
           <div className='flex flex-row justify-end items-end gap-2 mt-auto w-full'>
             <p className='text-base font-normal text-TextSecondaryLight dark:text-TextSecondaryDark mr-auto text-left'>* Select the statement that you think is a lie</p>
-            <button onClick={()=> {selectLie('0'); setSelected(false)}}
+            <button onClick={()=> {selectLie('0')}}
             className='text-lg font-bold text-TextSecondaryLight dark:text-TextSecondaryDark border-2 border-DodgerBlue dark:border-GoldenYellow rounded px-7 py-3'>
               Reset
             </button>

@@ -20,8 +20,8 @@ export default function Home() {
   const [mounted, setMounted]= useState(false)
   const [showCardName, setShowCardName]= useState(false)
   const activities: ActivitiesType[]=[
-    {name: '2 thruts 1 lie', link: 'start'},
-    {name: '2 thruts 1 lie 2 thruts 1 lie 2 thruts 1 lie lie 2 thruts 1 lie', link: 'start'},
+    {name: '2 thruts 1 lie', link: 'start1'},
+    {name: '2 thruts 1 lie 2 thruts 1 lie 2 thruts 1 lie lie 2 thruts 1 lie', link: 'start11'},
     
   ]
   
