@@ -16,7 +16,7 @@ const Language : React.FC<LanguageProps> = ({}) => {
 
   return (
     <>
-        <div className={`h-[72px] aspect-square rounded-xl bg-GhostWhite dark:bg-EclipsePurple
+        <div className={`h-16 aspect-square rounded-xl bg-GhostWhite dark:bg-EclipsePurple
          border-4 border-DodgerBlue dark:border-GoldenYellow overflow-hidden transform duration-500 ease flex flex-row justify-around items-center
         ${showLanguage? styles.expanded:styles.closed}`}
          onMouseOver={()=> setShowLanguage(true)} onMouseLeave={()=> setShowLanguage(false)}>

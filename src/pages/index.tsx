@@ -8,6 +8,7 @@ import Switcher from "../components/NavBar/SwitchLight";
 import Language from "../components/NavBar/SwitchLanguage";
 import { Activity } from "@/components/Cards/Activity";
 import Facts from "@/components/Cards/Facts";
+import NavBar from "@/components/NavBar/Navbar";
 
 interface ActivitiesType{
   name: string;
@@ -35,14 +36,15 @@ export default function Home() {
       className={` relative flex min-h-screen flex-col items-center justify-between p-24  dark:bg-neutral-800`}
     >
       {/* {showCardName && <NameCard showCard={()=>setShowCardName(false)} activity='ThrutLie'/>} */}
-      <div className="w-full flex flex-row justify-end items-center">
+      {/* <div className="w-full flex flex-row justify-end items-center">
         <Language/>
         <Switcher setTheme={lighter}/>
-      </div>
+      </div> */}
+      <NavBar/>
       <p onClick={()=>setShowCardName(true)}>
         {t("he")}
       </p>
-      <section className="flex gap-5 ">
+      <section className=" gap-5 hidden">
         {activities.map(act=>(<Activity name={act.name} link={act.link} key={act.link}/>))}
         {<Facts name="alexander the third" result={{thrut1: "hahaha", thrut2:"mdr", lie:"lol"}} />}
       </section>
